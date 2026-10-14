@@ -1,0 +1,163 @@
+.booking-page {
+  width: 100%;
+  background: var(--section-bg);
+  min-height: calc(100vh - 70px);
+}
+
+// ── Hero ────────────────────────────────────────────────────────────────────
+.booking-hero {
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+}
+
+// ── Body ─────────────────────────────────────────────────────────────────────
+.booking-body {
+  display: flex;
+  justify-content: center;
+  padding: 60px 24px 80px;
+}
+
+// ── Card ─────────────────────────────────────────────────────────────────────
+.booking-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+  padding: 48px 56px;
+  width: 100%;
+  max-width: 720px;
+
+  &__header {
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--coffee);
+      margin: 0 0 6px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #aaa;
+      margin: 0;
+    }
+  }
+}
+
+// ── Form ─────────────────────────────────────────────────────────────────────
+.booking-form {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  // Ant Design overrides
+  .ant-form-item-label > label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .ant-input,
+  .ant-picker {
+    height: 44px;
+    border-radius: 8px !important;
+    border: 1.5px solid var(--border) !important;
+    padding: 0 14px !important;
+    font-size: 14px;
+    color: var(--text) !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s;
+
+    &:hover,
+    &:focus,
+    &.ant-input-focused {
+      border-color: var(--primary) !important;
+    }
+  }
+
+  .ant-picker {
+    width: 100%;
+    padding: 0 12px !important;
+  }
+
+  textarea.ant-input {
+    height: auto !important;
+    padding: 10px 14px !important;
+    resize: none;
+    border-radius: 8px !important;
+  }
+}
+
+// ── Submit button ─────────────────────────────────────────────────────────────
+.booking-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 40px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ── Success state ─────────────────────────────────────────────────────────────
+.booking-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0 8px;
+  gap: 14px;
+  color: var(--coffee);
+
+  svg {
+    color: #4caf50;
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  p {
+    font-size: 15px;
+    color: #888;
+    max-width: 380px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .booking-hero {
+    height: 220px;
+  }
+
+  .booking-card {
+    padding: 32px 24px;
+  }
+
+  .booking-form__grid {
+    grid-template-columns: 1fr;
+  }
+}

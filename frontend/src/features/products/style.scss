@@ -1,0 +1,219 @@
+.products-page {
+  width: 100%;
+  background: var(--section-bg);
+  min-height: calc(100vh - 70px);
+}
+
+// ── Hero ────────────────────────────────────────────────────────────────────
+.products-hero {
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 4544 / 928;
+}
+
+// ── Layout ───────────────────────────────────────────────────────────────────
+.products-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+.products-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 86px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  padding-right: 8px;
+
+  // thin custom scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+
+  &__count {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 0 16px 4px;
+  }
+}
+
+.sidebar-category {
+  margin-bottom: 4px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coffee);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.sidebar-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 6px 12px;
+}
+
+.sidebar-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.15s;
+
+  &:hover {
+    color: var(--primary);
+    background: rgba(243, 112, 33, 0.06);
+  }
+
+  &.active {
+    color: var(--primary);
+    font-weight: 700;
+    background: rgba(243, 112, 33, 0.1);
+  }
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+.products-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Menu section ──────────────────────────────────────────────────────────────
+.menu-section {
+  width: 100%;
+  margin-bottom: 56px;
+  scroll-margin-top: 90px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--coffee);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+  }
+}
+
+// ── Product grid ──────────────────────────────────────────────────────────────
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+// ── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .products-layout {
+    flex-direction: column;
+    padding: 24px 20px 60px;
+    gap: 24px;
+  }
+
+  .products-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-right: 0;
+
+    &__count {
+      width: 100%;
+      margin-bottom: 4px;
+    }
+  }
+
+  .sidebar-category {
+    margin-bottom: 0;
+
+    &__title {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+
+  .sidebar-menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 0 0 0;
+  }
+
+  .sidebar-menu-item {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    background: var(--white);
+
+    &.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}

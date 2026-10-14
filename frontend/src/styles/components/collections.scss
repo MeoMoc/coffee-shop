@@ -1,0 +1,14 @@
+.collections-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 70px;
+
+  h2 {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: var(--header-text);
+  }
+}
